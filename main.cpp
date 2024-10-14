@@ -11,7 +11,7 @@ const string NAMES[] = {"Senior", "Godlike", "Old", "Mature", "Teen", "Young", "
 const string COLORS[] = {"Yellow", "Red", "Gold", "Mauve", "White", "Black", "Blue", "Green", "Silver", "Orange", "Purple", "Brown", "Gray", "Pink", "Turquoise"};
 
 class Goat{
-    public:
+public:
     int age;
     string name;
     string color;
@@ -28,3 +28,19 @@ class Goat{
         cout << name << " (" << color << " , " << age << ")" << endl;
     }
 };
+
+class DoublyLinkedList {
+private: 
+    struct Node{
+        Goat data;
+        Node* prev;
+        Node* next;
+        Node(Goat val, Node* p = nullptr, Node* n = nullptr){
+            data = val;
+            prev = p;
+            next = n;
+        }
+    };
+    Node* head;
+    Node* tail;
+}
