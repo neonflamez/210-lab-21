@@ -75,5 +75,66 @@ public:
 
     }
 
-    
+    void print(){
+        Node* current = head;
+        cout << "Forward:" << endl;
+        while(current){
+            current->data.display();
+            current = current->next;
+        }
+        cout << endl;
+    }
+
+    void print_reverse(){
+        Node* current = tail;
+        cout << "Backward:" << endl;
+        while(current){
+            current->data.display();
+            current = current->prev;
+        }
+        cout << endl;
+    }
+        
+    ~DoublyLinkedList(){
+        while(head){
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+
 };
+
+int main(){
+    srand(time(0));
+
+    DoublyLinkedList list;
+    int size = rand() % (MAX_NR - MIN_NR + 1) + MIN_NR;
+
+    for(int i = 0 ; i < size; i++){
+        Goat g;
+        list.push_back(g);
+    }
+
+    list.print();
+    list.print_reverse();
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
