@@ -43,4 +43,37 @@ private:
     };
     Node* head;
     Node* tail;
-}
+
+public:
+
+    DoublyLinkedList(){
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    void push_back(Goat value){
+        Node* newNode = new Node(value);
+        if(!tail)
+            head = tail = newNode;
+        else{
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+
+    }
+
+    void push_front(Goat value){
+        Node* newNode = new Node(value);
+        if(!head)
+            head = tail = newNode;
+        else {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+
+    }
+
+    
+};
